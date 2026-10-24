@@ -15,7 +15,7 @@ body {
    background-size: cover;
 }
 .h1{
-    font-size: 50px;
+    font-size: 60px;
 }
 /* Navigation Bar Styling */
 .navbar {
@@ -190,7 +190,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between; /* Spreads logo to left & text to right */
     align-items: center;            
     flex-wrap: wrap;                 
     gap: 15px;
