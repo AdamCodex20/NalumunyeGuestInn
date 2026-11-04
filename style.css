@@ -1,142 +1,153 @@
-/* Global Reset and Smooth Scrolling */
+/* =========================================================
+   RESPONSIVE VERSION OF YOUR STYLESHEET
+   Approach: mobile-first. Base styles = phones.
+   Media queries (min-width) ADD changes as the screen grows.
+   ========================================================= */
+
+/* ---------- 1. Reset ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* padding no longer makes elements wider than 100% */
+}
+
+img {
+    max-width: 100%;          /* images never overflow their container */
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px; /* Matches the height of your fixed navbar */
+    scroll-padding-top: 70px; /* matches fixed navbar */
 }
+
 body {
-    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #012001;
-   /* background-color: #f9f9f9;*/
-   background-image: url();
-   background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
-   background-size: cover;
+    line-height: 1.5;
+    overflow-x: hidden;       /* safety net against sideways scrolling */
 }
-.h1{
-    font-size: 60px;
+
+/* ---------- 2. Fluid typography ----------
+   clamp(min, preferred, max): grows with screen width but never
+   goes below min or above max. No media queries needed. */
+h1,
+.h1 {
+    font-size: clamp(2rem, 8vw, 3.75rem);   /* 32px -> 60px */
+    line-height: 1.1;
 }
-/* Navigation Bar Styling */
+
+.head-about {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);  /* 24px -> 40px */
+}
+
+.section-heading {
+    text-align: center;
+    color: #333;
+    font-size: clamp(1.4rem, 4vw, 1.75rem);
+    margin-bottom: 25px;
+}
+
+/* ---------- 3. Navbar ---------- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     background-color: #012001;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap;                 /* lets links drop below logo if too tight */
+    padding: 0 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
+
 .logo {
     display: flex;
     align-items: center;
-    padding-left: 40px;
-    /*color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    padding-left: 40px;*/
+    padding-left: 0;                 /* was 40px: too much on a phone */
 }
+
 .logo img {
-    height: 40px;        /* Fits inside the 60px height of your navbar */
-    width: auto;         /* Maintains aspect ratio */
-    display: block;      /* Prevents unnecessary spacing/margins under the image */
-    object-fit: contain; /* Ensures the logo isn't stretched */
+    height: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
-    padding-right: 40px;
+    flex-wrap: wrap;
+    gap: 12px;                       /* gap replaces margin-left on each li */
+    padding-right: 0;
     margin: 0;
 }
-.nav-links li {
-    margin-left: 20px;
-}
+
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 8px 4px;                /* bigger tap target for thumbs */
+    display: inline-block;
     transition: color 0.1s ease;
 }
+
 .nav-links a:hover {
-    color: #00bcd4; /* Accent color change on hover */
+    color: #00bcd4;
 }
-/* Layout for Individual Sections */
+
+/* ---------- 4. Sections ---------- */
 .page-section {
-    min-height: 100vh; /* Ensures each section takes up the full screen height */
+    min-height: 100vh;
+    min-height: 100svh;              /* accurate on mobile browsers with moving URL bars */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px;
-    box-sizing: border-box;
+    padding: 90px 20px 50px;         /* was 100px on all sides: wasted most of a phone screen */
 }
+
 .content {
-    max-width: 800px;
     width: 100%;
+    max-width: 1100px;               /* keeps text readable on huge monitors */
 }
-/* Giving sections alternative background colors for clear visual separation */
+
 #home {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(na.jpeg) no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url(na.jpeg) no-repeat center center / cover;
     color: white;
 }
-#about {
-    background-color: #ffffff;
-}
-.head-about{
- font-size: 40px;
-}
-#services {
-    background-color: #e8edeb;
-}
+
+#about    { background-color: #ffffff; }
+#services { background-color: #e8edeb; }
+#contact  { background-color: #ffffff; }
+
+/* ---------- 5. Services grid ---------- */
 .services-grid {
-    display: flex;
+    display: grid;
+    /* As many columns as fit, each at least 220px wide, sharing space equally.
+       1 column on phones, 2 on tablets, 3-4 on desktops, automatically. */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     margin-top: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
 }
+
 .service-box {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(22, 169, 66, 0.05);
-    width: 200px;
+    width: 100%;                     /* was fixed 200px; the grid controls width now */
 }
-#contact {
-    background-color: #ffffff;
-}
-/* Contact Form Styling 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 400px;
-    margin: 30px auto 0 auto;
-}
-.contact-form input, .contact-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-.contact-form button {
-    padding: 12px;
-    background-color: #033718;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.contact-form button:hover {
-    background-color: #00bcd4;
-}*/
-/* Responsive container for the map section */
+
+/* ---------- 6. Map ---------- */
 .map-container {
     width: 100%;
     max-width: 800px;
@@ -144,42 +155,38 @@ body {
     padding: 0 15px;
     font-family: Arial, sans-serif;
 }
-.me{
-    text-align: center;
-}
-.u {
-    display: inline-flex;
-    align-items: center;
-    gap: 110px;
-    margin-bottom: 20px;
-     
-}
 
-/* Heading style */
 .map-container h2 {
     color: #333;
     margin-bottom: 15px;
 }
 
-/* Makes the iframe responsive and adds clean styling */
 .map-container iframe {
     width: 100%;
-    height: 400px;
+    height: 300px;
     border: 0;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.section-heading {
+
+/* ---------- 7. Misc ---------- */
+.me {
     text-align: center;
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 25px;
 }
 
-/* Footer Container Styles */
+.u {
+    display: inline-flex;
+    flex-wrap: wrap;                 /* allows wrapping on narrow screens */
+    justify-content: center;
+    align-items: center;
+    gap: 24px;                       /* was 110px: forced sideways scrolling on phones */
+    margin-bottom: 20px;
+}
+
+/* ---------- 8. Footer ---------- */
 .site-footer {
-    background-color: #012001; 
-    color: #fafcfa;             
+    background-color: #012001;
+    color: #fafcfa;
     padding: 20px 0;
     font-family: Arial, sans-serif;
     width: 100%;
@@ -190,23 +197,85 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between; /* Spreads logo to left & text to right */
-    align-items: center;            
-    flex-wrap: wrap;                 
+    flex-direction: column;          /* stacked on phones */
+    align-items: center;
+    text-align: center;
     gap: 15px;
 }
 
-/* Left Side (Logo) */
 .footer-logo {
-    max-height: 40px; /* Adjust height based on your logo */
+    max-height: 40px;
     width: auto;
     display: block;
 }
 
-/* Right Side (Copyright Text) */
 .footer-right p {
-    margin: 0;
     font-size: 14px;
     color: #cccccc;
 }
 
+/* =========================================================
+   BREAKPOINTS: only ADD or OVERRIDE what changes
+   ========================================================= */
+
+/* Tablet and up (768px+) */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 0 24px;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        padding-left: 16px;
+    }
+
+    .nav-links {
+        gap: 20px;
+        padding-right: 16px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .page-section {
+        padding: 100px 40px 60px;
+    }
+
+    .map-container iframe {
+        height: 400px;
+    }
+
+    .footer-container {
+        flex-direction: row;         /* logo left, text right again */
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+/* Desktop and up (1024px+) */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 0 40px;
+    }
+
+    .logo {
+        padding-left: 0;
+    }
+
+    .nav-links {
+        gap: 28px;
+        padding-right: 0;
+    }
+
+    .page-section {
+        padding: 100px 60px 80px;
+    }
+}
+
+/* Respect users who turn off animations in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
