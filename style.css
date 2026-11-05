@@ -121,7 +121,7 @@ h1,
 
 #home {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url(na.jpeg) no-repeat center center / cover;
+                url(img/na.jpeg) no-repeat center center / cover;
     color: white;
 }
 
@@ -271,6 +271,19 @@ h1,
     .page-section {
         padding: 100px 60px 80px;
     }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* Respect users who turn off animations in their OS settings */
