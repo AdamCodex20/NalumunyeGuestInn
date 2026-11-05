@@ -58,7 +58,7 @@ h1,
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 60px;
+    min-height: 50px;
     background-color: #012001;
     display: flex;
     justify-content: space-between;
@@ -76,7 +76,7 @@ h1,
 }
 
 .logo img {
-    height: 40px;
+    height: 35px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -86,7 +86,7 @@ h1,
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;                       /* gap replaces margin-left on each li */
+    gap: 4px;                       /* gap replaces margin-left on each li */
     padding-right: 0;
     margin: 0;
 }
@@ -94,7 +94,7 @@ h1,
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1px;
     padding: 8px 4px;                /* bigger tap target for thumbs */
     display: inline-block;
     transition: color 0.1s ease;
