@@ -181,6 +181,7 @@ h1,
     display: inline-flex;
     flex-wrap: wrap;                 /* allows wrapping on narrow screens */
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 24px;                       /* was 110px: forced sideways scrolling on phones */
     margin-bottom: 20px;
