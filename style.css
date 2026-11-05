@@ -121,7 +121,7 @@ h1,
 }
 
 #home {
-   min-height: 100svh;               /* hero fills the phone screen once */
+   min-height: 50svh;               /* hero fills the phone screen once */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                 url(img/na.jpeg) no-repeat center center / cover;
     color: white; 
