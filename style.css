@@ -59,7 +59,7 @@ h1,
     left: 0;
     width: 100%;
     min-height: 50px;
-    background-color: #012001;
+    background-color: #064a06;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -128,7 +128,7 @@ h1,
 }
 
 #about    { background-color: #ffffff; }
-#services { background-color: #e8edeb; }
+#services { background-color: #71f171; }
 #contact  { background-color: #ffffff; }
 
 /* ---------- 5. Services grid ---------- */
@@ -188,7 +188,7 @@ h1,
 
 /* ---------- 8. Footer ---------- */
 .site-footer {
-    background-color: #012001;
+    background-color: #064a06;
     color: #fafcfa;
     padding: 20px 0;
     font-family: Arial, sans-serif;
