@@ -242,7 +242,7 @@ h1,
     }
 
     .page-section {
-         min-height: 80vh; 
+         min-height: 50vh; 
     }
 
     .map-container iframe {
