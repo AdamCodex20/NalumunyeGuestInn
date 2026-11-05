@@ -19,14 +19,16 @@ img {
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px; /* matches fixed navbar */
+     scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%; /* matches fixed navbar */
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #012001;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: hidden;       /* safety net against sideways scrolling */
 }
 
@@ -92,7 +94,7 @@ h1,
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
     padding: 8px 4px;                /* bigger tap target for thumbs */
     display: inline-block;
     transition: color 0.1s ease;
@@ -105,12 +107,12 @@ h1,
 /* ---------- 4. Sections ---------- */
 .page-section {
        width: 100%;
-       min-height: 80vh;
+    min-height: auto;                 /* sections fit their content on phones */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 70px 20px 40px;       /* was 100px on all sides: wasted most of a phone screen */
+    padding: 80px 20px 40px;       /* was 100px on all sides: wasted most of a phone screen */
 }
 
 .content {
@@ -119,11 +121,10 @@ h1,
 }
 
 #home {
+   min-height: 100svh;               /* hero fills the phone screen once */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                 url(img/na.jpeg) no-repeat center center / cover;
-    color: white;
-
-    
+    color: white; 
 }
 
 #about    { background-color: #ffffff; }
@@ -145,6 +146,7 @@ h1,
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(22, 169, 66, 0.05);
+    font-size: 1rem;
     width: 100%;                     /* was fixed 200px; the grid controls width now */
 }
 
@@ -240,7 +242,7 @@ h1,
     }
 
     .page-section {
-        padding: 100px 40px 60px;
+         min-height: 80vh; 
     }
 
     .map-container iframe {
@@ -255,7 +257,7 @@ h1,
 }
 
 /* Desktop and up (1024px+) */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .navbar {
         padding: 0 40px;
     }
