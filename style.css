@@ -207,13 +207,13 @@ h1,
 }
 
 .footer-logo {
-    max-height: 30px;
+    max-height: 25px;
     width: auto;
     display: block;
 }
 
 .footer-right p {
-    font-size: 14px;
+    font-size: 9px;
     color: #cccccc;
 }
 
