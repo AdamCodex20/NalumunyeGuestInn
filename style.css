@@ -193,6 +193,7 @@ h1,
     padding: 20px 0;
     font-family: Arial, sans-serif;
     width: 100%;
+    min-height: 50px;
 }
 
 .footer-container {
