@@ -1,11 +1,4 @@
-/* =========================================================
-   RESPONSIVE VERSION OF YOUR STYLESHEET
-   Approach: mobile-first. Base styles = phones.
-   Media queries (min-width) ADD changes as the screen grows.
-   ========================================================= */
 
-/* ---------- 1. Reset ---------- */
-*,
 *::before,
 *::after {
     margin: 0;
@@ -193,7 +186,7 @@ h1,
     padding: 20px 0;
     font-family: Arial, sans-serif;
     width: 100%;
-    min-height: 50px;
+
 }
 
 .footer-container {
