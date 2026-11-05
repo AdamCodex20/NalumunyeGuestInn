@@ -94,7 +94,7 @@ h1,
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 1px;
+    font-size: 5px;
     padding: 8px 4px;                /* bigger tap target for thumbs */
     display: inline-block;
     transition: color 0.1s ease;
