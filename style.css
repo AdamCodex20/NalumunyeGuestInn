@@ -104,14 +104,12 @@ h1,
 
 /* ---------- 4. Sections ---------- */
 .page-section {
-    min-height: 100vh;
-    min-height: 100svh;              /* accurate on mobile browsers with moving URL bars */
-    width: 100%;
+       width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 90px 20px 50px;         /* was 100px on all sides: wasted most of a phone screen */
+    padding: 70px 20px 40px;       /* was 100px on all sides: wasted most of a phone screen */
 }
 
 .content {
