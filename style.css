@@ -289,3 +289,20 @@ h1,
         scroll-behavior: auto;
     }
 }
+
+#media { background-color: #ffffff; }
+
+.video-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 0;          /* centered, space before the images */
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #000;             /* black box while the video loads */
+}
